@@ -26,9 +26,9 @@ int main() {
     /* EOF is ctrl-d (linux) or ctrl-z (windows) */
 
     while (scanf("%d", &val) != EOF) {
-        if (first == 1 || val > maxval)
+        if (first || val > maxval)
             maxval = val;
-        if (first == 1 || val < minval)
+        if (first || val < minval)
             minval = val;
         first = 0;
     }
