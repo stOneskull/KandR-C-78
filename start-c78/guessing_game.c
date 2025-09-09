@@ -5,13 +5,13 @@ while True:
     except:
         break
     
-        if guess == 42:
-            print('Nice work!)
-            break
-        elif guess < 42:
-            print('Too low - guess again!')
-        else:
-            print('Too high - guess again!')
+    if guess == 42:
+        print('Nice work!)
+        break
+    elif guess < 42:
+        print('Too low - guess again!')
+    else:
+        print('Too high - guess again!')
 */
 
 #include <stdio.h>
