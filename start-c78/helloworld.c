@@ -20,7 +20,7 @@ void straight() {
 
 int d(int limit) {
     srand((unsigned)time(NULL)); // Seed the random number generator
-    int random_number = rand() % limit; // Generate a random number between 0 and 99
+    int random_number = rand() % limit; // Generate a random number between 0 and limit-1
     random_number += 1; 
     printf("Random Number: %d\n", random_number);
     return random_number;
@@ -33,16 +33,21 @@ int main() {clock_t start = clock();
     printf("Current date and time: %s", asctime(local));
     printf("Hello, World!\n");
 
-    int die = d(100);
-    float magic = die * PI;
+    int die;
+    scanf("%d", &die);
+    printf("Die: %d\n", die);
+
+    int random_number = d(die);
+
+    float magic = random_number * PI;
     printf("Magic: %.2f\n", magic); 
 
     if (magic < 100) {
         down();
     } else if (magic < 200) {
-        up();
-    } else {
         straight();
+    } else {
+        up();
     }
 
     clock_t end = clock();
