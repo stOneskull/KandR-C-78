@@ -35,7 +35,7 @@ main() {clock_t start = clock();
     int die = 0;
     scanf("%d", &die);
     if (!die)
-        die = 2;
+        die = 23;
     printf("Die: %d\n", die);
 
     int random_number = d(die);
