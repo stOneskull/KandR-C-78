@@ -2,44 +2,45 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define PI 3.1416
-
-
-void down() {
+down() {
     printf("Action: Down\n");
 }
 
-void up() {
+up() {
     printf("Action: Up\n");
 }
 
-void straight() {
+straight() {
     printf("Action: Straight\n");
 }
 
 
-int d(int limit) {
-    srand((unsigned)time(NULL)); // Seed the random number generator
-    int random_number = rand() % limit; // Generate a random number between 0 and limit-1
+d(int limit) {
+    srand((unsigned)time(NULL)); 
+    /* Seed the random number generator, then generate a random number 
+    from 0 to limit-1, then add 1 to it, so that the number is from 1-limit */
+    int random_number = rand() % limit;
     random_number += 1; 
     printf("Random Number: %d\n", random_number);
     return random_number;
 }
 
-int main() {clock_t start = clock();
+main() {clock_t start = clock();
     time_t now = time(NULL);
     struct tm *local = localtime(&now);
 
     printf("Current date and time: %s", asctime(local));
     printf("Hello, World!\n");
 
-    int die;
+    int die = 0;
     scanf("%d", &die);
+    if (!die)
+        die = 2;
     printf("Die: %d\n", die);
 
     int random_number = d(die);
 
-    float magic = random_number * PI;
+    float magic = random_number * 3.1416;
     printf("Magic: %.2f\n", magic); 
 
     if (magic < 100) {
