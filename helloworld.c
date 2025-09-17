@@ -43,13 +43,12 @@ main() {clock_t start = clock();
     float magic = random_number * 3.1416;
     printf("Magic: %.2f\n", magic); 
 
-    if (magic < 100) {
-        down();
-    } else if (magic < 200) {
-        straight();
-    } else {
+    if (magic > 2*die)
         up();
-    }
+    else if (magic > die)
+        straight();
+    else
+        down();
 
     clock_t end = clock();
     double elapsed = (double)(end - start) / CLOCKS_PER_SEC;
